@@ -1,0 +1,16 @@
+<form [formGroup]="addform" (ngSubmit)="onSubmit()">
+  
+    <label>
+      Car Name :
+      <input type="text" formControlName="name">
+    </label>
+    <br/><br/>
+    <label>
+      Last Name :
+      <input type="text" formControlName="model">
+    </label>
+    <br/><br/>
+    <button type="submit" [disabled]="!addform.valid">Submit</button>
+  </form>
+
+  

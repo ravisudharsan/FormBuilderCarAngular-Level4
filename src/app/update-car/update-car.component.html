@@ -1,0 +1,15 @@
+<form [formGroup]="updateform" (ngSubmit)="submitCar()">
+  <label>
+    Car Name :
+    <input type="text" formControlName="name" placeholder="Name" name="name" class="form-control" id="name">
+  </label>
+  <br/><br/>
+  <label>
+    Last Name :
+    <input type="text" formControlName="model" placeholder="Model" name="model" class="form-control" id="model">
+  </label>
+  <br/><br/>
+  <button type="submit" [disabled]="!addform.valid">Submit</button>
+</form>
+
+
