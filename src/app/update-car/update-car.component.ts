@@ -18,24 +18,32 @@ export class UpdateCarComponent implements OnInit {
 
   ngOnInit() {
     let carId = localStorage.getItem("carId");
+    let carName=localStorage.getItem("carName");
+    let carModel=localStorage.getItem("carModel");
     alert(carId);
+    alert(carName);
+    alert(carModel);
     this.updateform = this.fb.group({
       id: [],
       name: [''],
       model: ['']
     });
-    this.httpservice.getUserById(carId)
+    this.updateform.controls['id'].setValue(carId);
+    this.updateform.controls['name'].setValue(carName);
+    this.updateform.controls['model'].setValue(carModel);
+
+    /*this.httpservice.getUserById(carId)
       .subscribe( data => {
         this.updateform.setValue(data);
-      });
+      });*/
   }
 
   submitCar(){
+    console.warn(this.updateform.value);
     this.httpservice.updateCarList(this.updateform.value)
-      .pipe(first())
       .subscribe(
         data => {
-          this.router.navigate(['/carlist']);
+          alert("Data Updated Successfully");
         },
         error => {
           alert(error);

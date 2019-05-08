@@ -17,10 +17,6 @@ export class HttpClientService {
 
   constructor(private httpClient:HttpClient) { }
 
-  getUserById(id) {
-    return this.httpClient.get<Car>('http://localhost:8080/getitem' + '/' + id);
-  }
-
   getCarList()
   {
     return this.httpClient.get<Car[]>('http://localhost:8080/all');
@@ -31,7 +27,7 @@ export class HttpClientService {
   }
   
   public updateCarList(car) {
-    return this.httpClient.put("http://localhost:8080/update"+"/"+car.id, car);
+    return this.httpClient.put("http://localhost:8080/update", car);
   }
 
   public addCarList(car) {
